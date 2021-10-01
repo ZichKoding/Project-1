@@ -1,19 +1,6 @@
-$(document).ready(function(){
-    var searchbar
-    var btn
+const mainEl = $("main");
 
-    // btn.css('display','none')
-    // searchbar.animate({MarginTop:'',MarginLeft:''}1000, function(wooouuuo){
-    // })
-    console.log('goose')
-});
+// The add class part look to the style.css to see what it contains
+let pastFuture = $("<div></div>").addClass("testingContainer");
 
-var btn = somethingelse
-
-
-
-document.getElementById("btn").addEventListener("click", musicSearch)
-
-
-
-var = something;
+mainEl.append(pastFuture);

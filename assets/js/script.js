@@ -1,4 +1,3 @@
-
 $(document).ready(function(){
     var searchbar
     var btn
@@ -9,7 +8,7 @@ $(document).ready(function(){
     console.log('goose')
 });
 
-
+var btn = somethingelse
 
 
 

@@ -1,0 +1,50 @@
+:root {
+    --primaryColor: #ffffff;
+    --secondaryColor: #ffffff;
+    --tertiaryColor: #ffffff;
+    --primaryTextColor: #000000;
+    --secondaryTextColor: #ffffff;
+    --tertiaryTextColor: #000000;
+}
+
+body, html {
+    height: 100%;
+}
+    
+nav {
+    background-color: #FA8BFF;
+    background-image: linear-gradient(45deg, #fa8bff 0%, #2bd2ff 52%, #2bff88 90%);
+    padding: 1px;
+}
+nav h1 {
+    color: var(--secondaryTextColor);
+    font-size: 48px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: left;
+    
+}
+
+.hero-image {
+ background-image: url("/assets/images/boombox-gd9f7978a9_1920.png");
+
+ /* Position and center the image to scale nicely on all screens */
+ background-position: center;
+ background-repeat: no-repeat;
+ background-size: cover;
+ position: relative;
+}
+
+@media screen and (max-width: 768px) {
+    .navbar-brand { 
+    text-align: center;
+    padding: 0 auto;
+    width: 100%;
+    }    
+}
+@media screen and (max-width: 576px) {
+     .navbar-brand {
+     text-align: center;
+    padding: 0 auto;
+    width: 100%;
+    }
+}

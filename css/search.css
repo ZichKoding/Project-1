@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url(../images/vinyl-records-g3e73edcf7_1920.jpg);
+}
+
+.container {
+    margin: 200px auto;
+    width: 500 px;
+    height: 60px;
+}
+
+.form {
+    display: flex;
+    flex-direction: row;
+}
+
+.search-bar {
+    width: 100%;
+    padding: 10px 35px 10px 15px;
+    border: solid black;
+    border-radius: 100px;
+    outline: none;
+}
+
+.search-button {
+    background: transparent;
+    border-bottom: none;
+    outline: none;
+    margin-left: -40px;
+}
+
+.search-button img {
+    width: 20px;
+    height: 20px;
+    object-fit: scale-down;
+}

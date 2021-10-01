@@ -13,3 +13,7 @@ var btn = somethingelse
 
 
 document.getElementById("btn").addEventListener("click", musicSearch)
+
+
+
+var = something;

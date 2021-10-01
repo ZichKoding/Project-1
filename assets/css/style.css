@@ -6,8 +6,13 @@
     --secondaryTextColor: #ffffff;
     --tertiaryTextColor: #000000;
 }
+body {
+ background-image: url("/assets/images/vinyl-records-g3e73edcf7_1920.jpg");
+}
+
 body, html {
     height: 100%;
+    
 }
 
 nav {

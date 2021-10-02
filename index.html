@@ -4,27 +4,42 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="stylesheet" href="./assets/css/mainpage.css">
-    <title>Project 1</title>
+    <!--bulma stylesheet-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <!--search and main page style sheets-->
+    
+    <link rel="stylesheet" type="text/css" href="./assets/css/mainpage.css">
+    <title>TuneItUp</title>
 </head>
 <body>
-    <nav id="" class="">
-        <h1>
-            PROJECT 1
-        </h1>
-    </nav>
+    <header>
+        <div id="header">
+            <h1>TuneItUp</h1>
+        </div>
+    </header>
+      <!-- adding search bar to main page -->  
+      <nav class="navbar">   
+        <div class="container">
+            <form action="./index.html" class="search-bar">
+                <input type="text" placeholder="Search for a music video" class="search-bar" />
+                <button type="submit" class="search-button">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Magnifying_glass_icon.svg/1200px-Magnifying_glass_icon.svg.png" alt="magnifying glass icon">
+                </button> 
+            </form>
+        </div>
+        <!-- end of search bar -->
+       </nav> 
     <main>
         <div class="hero-image">
             <div class="hero-text">
-                <h1>Choose an Artist/Song</h1>
+        
             </div>
         </div>
     </main>
     
 
 
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="./assets/js/script.js"></script>
 </body>
 </html>

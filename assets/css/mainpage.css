@@ -12,52 +12,48 @@
     padding: 0%;
     box-sizing: border-box;
 }
-
-body  {
-    height: 100%;
-    background-image: url("/assets/images/boombox-gd9f7978a9_1920.png");
-}
-    
-#header {
-    background-color: #FA8BFF;
-    background-image: linear-gradient(45deg, #fa8bff 0%, #2bd2ff 52%, #2bff88 90%);
-    padding: 5px;
-    display: flex;
-    flex-wrap: wrap;
-    
-
-}
-#header h1 {
-    color: var(--secondaryTextColor);
-    font-size: 48px;
-    text-align: left; 
-    margin-left: 15px;
- 
-}
+body {
+   background-image: url("../images/scott-campbell-boombox-collection-record-collection-square.jpg.crdownload"); 
+   
+   
+} 
 
 .navbar {
+    background-color: #000000;
+    background-image: linear-gradient(45deg, #404247 0%, #666973 52%, #d3d9e8 90%);
+    padding: 5px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     align-items: center;
     list-style: none;
     margin: 0;
     padding: 0 1rem;
-  }
-
-.search-bar {
-    width: 60%;
     
 }
+ h1 {
+    color: var(--secondaryTextColor);
+    font-size: 48px;
+    text-align: right; 
+    margin-left: 15px;
+    padding-top: 10px;
+}
+
+.searchbox {
+    margin:auto;
+    align-items: center;
+}
+
+
+.search-bar {
+    width: 70%;
+}
+
 
 .search-bar, .search-button  {
     padding: 8px;
-    margin-bottom: 50%;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
+    margin-bottom: 30%;
     
-
+    
 }
 
 .search-bar:hover, .search-button:hover {
@@ -66,24 +62,20 @@ body  {
     list-style-type: none;
 }
 
-.search-button img {
-    width: 20px;
-    height: 17.9px;
-    object-fit: scale-down;
-}
 
-.hero-image {
-    
-    /* Position and center the image to scale nicely on all screens */
-    background-size: cover;
-    background-position: 80%;
-    background-attachment: fixed;
-    z-index: 9999;
-    background-attachment: fixed;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
+
+
+ .event-list{
+
  }
+
+ .music-video {
+
+ }
+
+.album-cover {
+
+}
 
 
 @media screen and (max-width: 768px) {

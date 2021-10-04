@@ -1,0 +1,98 @@
+:root {
+    --primaryColor: #ffffff;
+    --secondaryColor: #ffffff;
+    --tertiaryColor: #ffffff;
+    --primaryTextColor: #000000;
+    --secondaryTextColor: #ffffff;
+    --tertiaryTextColor: #000000;
+}
+
+* {
+    margin: 0;
+    padding: 0%;
+    box-sizing: border-box;
+}
+body {
+   background-image: url("../images/scott-campbell-boombox-collection-record-collection-square.jpg.crdownload"); 
+   
+   
+} 
+
+.navbar {
+    background-color: #000000;
+    background-image: linear-gradient(45deg, #404247 0%, #666973 52%, #d3d9e8 90%);
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0 1rem;
+    
+}
+ h1 {
+    color: var(--secondaryTextColor);
+    font-size: 48px;
+    text-align: right; 
+    margin-left: 15px;
+    padding-top: 10px;
+}
+
+.search-container {
+    margin-left: 400px;
+}
+
+.searchbox {
+    margin:auto;
+    align-items: center;
+}
+
+
+.search-bar {
+    width: 70%;
+}
+
+
+.search-bar, .search-button  {
+    padding: 8px;
+    margin-bottom: 30%;
+    
+    
+}
+
+.search-bar:hover, .search-button:hover {
+    text-shadow: 1px 1px var(--tertiary-color);
+    font-weight: 900;
+    list-style-type: none;
+}
+
+
+
+
+ .event-list{
+
+ }
+
+ .music-video {
+
+ }
+
+.album-cover {
+
+}
+
+
+@media screen and (max-width: 768px) {
+    .navbar { 
+    text-align: center;
+    padding: 0 auto;
+    width: 100%;
+    }    
+}
+@media screen and (max-width: 576px) {
+    .navbar {
+    text-align: center;
+    padding: 0 auto;
+    width: 100%;
+    }
+}

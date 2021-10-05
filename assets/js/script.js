@@ -49,3 +49,4 @@ function musicBrainzData(musicbrainz) {
 $(".search-button").click(() =>{
     musicBrainzData(testMBKey);
 });
+musicBrainzData(testMBKey);

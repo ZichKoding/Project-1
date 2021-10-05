@@ -1,20 +1,11 @@
-:root {
-    --primaryColor: #ffffff;
-    --secondaryColor: #ffffff;
-    --tertiaryColor: #ffffff;
-    --primaryTextColor: #000000;
-    --secondaryTextColor: #ffffff;
-    --tertiaryTextColor: #000000;
-}
-
 * {
     margin: 0;
     padding: 0%;
     box-sizing: border-box;
 }
 body {
-   background-image: url("../images/scott-campbell-boombox-collection-record-collection-square.jpg.crdownload"); 
-   
+   background-image: url("../images/scott-campbell-boombox-collection-record-collection-square.jpg"); 
+   background-size: cover;
    
 } 
 
@@ -31,34 +22,33 @@ body {
     
 }
  h1 {
-    color: var(--secondaryTextColor);
-    font-size: 48px;
+    color: #ffffff;
+    font-size: 50px;
     text-align: right; 
+    text-shadow: 2px 2px 4px #000000;
     margin-left: 15px;
     padding-top: 10px;
 }
 
+
 .search-container {
-    margin-left: 400px;
+    margin-left: 465px;
 }
-
-.searchbox {
-    margin:auto;
-    align-items: center;
-}
-
 
 .search-bar {
-    width: 70%;
+    width: 72%;
+  
 }
 
+.search-button {
+    color: black;
+}
 
 .search-bar, .search-button  {
     padding: 8px;
-    margin-bottom: 30%;
-    
-    
+    border-radius: 10px;   
 }
+
 
 .search-bar:hover, .search-button:hover {
     text-shadow: 1px 1px var(--tertiary-color);
@@ -67,32 +57,43 @@ body {
 }
 
 
-
-
  .event-list{
+     align-items: left;
+     box-shadow: 5px 10px #888888;
 
  }
 
+ .album-cover, 
  .music-video {
-
+    align-items: right;
+    box-shadow: 5px 10px #888888;
  }
 
-.album-cover {
-
-}
 
 
-@media screen and (max-width: 768px) {
-    .navbar { 
-    text-align: center;
-    padding: 0 auto;
-    width: 100%;
+@media screen and (max-width: 980px) {
+    header { 
+        justify-content: center;
+        padding-bottom: 0;
+        position: relative;
     }    
+
+    header h1  {
+        width: 100%;
+        text-align: center;
+    
+    }
+    .search-container {
+        margin-top: 20px;
+        width: 100%;
+        justify-content: center;
+
+    }
 }
-@media screen and (max-width: 576px) {
-    .navbar {
-    text-align: center;
-    padding: 0 auto;
-    width: 100%;
+@media screen and (max-width: 768px) {
+        .navbar {
+        text-align: center;
+        padding: 0 auto;
+        width: 100%;
     }
 }

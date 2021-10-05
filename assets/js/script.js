@@ -6,11 +6,11 @@
 
 
 
-let musicbrainzKey = "&token=DVnA1yF1utvshelsmWupGyyTK4DOhHdCbWBEzH7P";
-let musicBrainz =  "https://musicbrainz.org/ws/2/artist?query=Chuck Berry&limit=5&offset=3" + musicbrainzKey;
+// let musicbrainzKey = "&token=DVnA1yF1utvshelsmWupGyyTK4DOhHdCbWBEzH7P";
+// let musicBrainz =  "https://musicbrainz.org/ws/2/artist?query=Chuck Berry&limit=5&offset=3" + musicbrainzKey;
 // let testMBKey = "https://musicbrainz.org/ws/2/artist?query=name:chuckberry"+ musicbrainzKey;
 // let testMBKey = "https://itunes.apple.com/search?term=all+star";
-let testMBKey = "https://www.googleapis.com/youtube/v3/search?video=allstar&key=AIzaSyAoAuZidiWzXoMS16M-thE7TaDJUGlS34w";
+let testMBKey = "https://www.googleapis.com/youtube/v3/search?part=snippet&video=" +$(".search-bar").val() + "&key=" + config.youtube;
 
 function mainElDynamic() {
     const mainEl = $("main");
@@ -35,7 +35,16 @@ mainElDynamic();
 function musicBrainzData(musicbrainz) {
     fetch(musicbrainz)
     .then(response => response.json())
-    .then(data => console.log(data));
+    .then(function(data) {
+        console.log(data);
+        console.log(data.items[0].id.videoId);
+        console.log(data.items[0].snippet.channelId);
+        console.log("https://www.youtube.com/watch?v=" + data.items[0].id.videoId + "&ab_channel=" + data.items[0].snippet.channelId);
+        let mainVidEl = "https://www.youtube.com/watch?v=" + data.items[0].id.videoId + "&ab_channel=" + data.items[0].snippet.channelId;
+        $("#searchedVid").attr("src", mainVidEl);
+    });
 };
 
-musicBrainzData(testMBKey);
+$(".search-button").click(() =>{
+    musicBrainzData(testMBKey);
+});

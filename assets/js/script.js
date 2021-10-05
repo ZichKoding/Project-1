@@ -11,7 +11,7 @@
 // let testMBKey = "https://musicbrainz.org/ws/2/artist?query=name:chuckberry"+ musicbrainzKey;
 // let testMBKey = "https://itunes.apple.com/search?term=all+star";
 let searchEl = $(".search-bar").val();
-let testMBKey = "https://www.googleapis.com/youtube/v3/search?part=snippet&video=" +$(".search-bar").val() + "&key=" + config.youtube;
+let testMBKey = "https://www.googleapis.com/youtube/v3/search?part=snippet&video=" + $(".search-bar").val() + "&key=" + config.youtube;
 
 function mainElDynamic() {
     const mainEl = $("main");
@@ -29,7 +29,7 @@ function mainElDynamic() {
     mainEl.append(pastFuture);
     mainEl.append(artEl);
     mainEl.append(musicEl);
-}
+};
 
 mainElDynamic();
 

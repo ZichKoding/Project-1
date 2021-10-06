@@ -1,6 +1,7 @@
 // let searchEl = $("#searchBar").text();
 // let testMBKey = 'https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelType=any&eventType=completed&maxResults=10&order=relevance&q=' + searchEl + '&key=' + config.youtube.brock;
 
+
 // allows pressing the enter key as an option for searching in addition to the search button
 $("#searchBaR").keypress(function(event) {
     if (event.keyCode === 13) {
@@ -15,7 +16,7 @@ function mainElDynamic() {
     // The add class part look to the style.css to see what it contains
     let pastFuture = $("<div></div>").addClass("testingContainer");
     // Music video dynamic
-    let musicEl = $("<iframe></iframe>").addClass("music-video");
+    let musicEl = $("<iframe></iframe>").addClass("music-video").width("80%").height("500");
     musicEl.attr("id", "searchedVid");
     // Appending the 3 main contents to the page.
     mainEl.append(pastFuture);
@@ -32,7 +33,7 @@ function musicVideoData(musicbrainz) {
         console.log("https://www.youtube.com/watch?v=" + data.items[0].id.videoId + "&ab_channel=" + data.items[0].snippet.channelTitle);
         getEvents(data.items[0].snippet.channelTitle);
         // variable for embedding the video
-        let mainVidEl = "https://www.youtube.com/embed/" + data.items[0].id.videoId;
+        let mainVidEl = "https://www.youtube.com/embed/" + data.items[0].id.videoId + "?autoplay=1";
         // giving iframe the src path for the video
         $("#searchedVid").attr("src", mainVidEl);
     });
@@ -55,7 +56,7 @@ function getArtistName(searchTerm) {
     .then((data) => {
         console.log(data.results[0].artistName);
         let returnedArtist = data.results[0].artistName;
-        getEvents(returnedArtist);
+        toString(getEvents(returnedArtist));
     })
 };
 

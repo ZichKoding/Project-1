@@ -1,6 +1,13 @@
 // let searchEl = $("#searchBar").text();
 // let testMBKey = 'https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelType=any&eventType=completed&maxResults=10&order=relevance&q=' + searchEl + '&key=' + config.youtube.brock;
 
+// allows pressing the enter key as an option for searching in addition to the search button
+$("#searchBaR").keypress(function(event) {
+    if (event.keyCode === 13) {
+      event.preventDefault();
+      $("#search-button").click();
+    }
+  });
 
 function mainElDynamic() {
     const mainEl = $("#mainContainer");

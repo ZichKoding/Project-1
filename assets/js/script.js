@@ -50,10 +50,12 @@ function getEvents(searchTerm){
 // itunes api to get artist name and send to getEvents
 // still looking on how to search for an artist by track name
 function getArtistName(searchTerm) {
-    fetch(`https://itunes.apple.com/search?key=${searchTerm}&entity=allArtist&limit=10`)
+    fetch(`https://itunes.apple.com/search?term=${searchTerm}&limit=10`)
     .then(response => response.json())
     .then((data) => {
-        console.log(data);
+        console.log(data.results[0].artistName);
+        let returnedArtist = data.results[0].artistName;
+        getEvents(returnedArtist);
     })
 };
 

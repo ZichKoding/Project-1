@@ -3,9 +3,18 @@
     padding: 0%;
     box-sizing: border-box;
 }
+body, html {
+    height: 100%;
+}
+
 body {
+<<<<<<< HEAD
    background-image: url("../images/scott-campbell-boombox-collection-record-collection-square.jpg"); 
    background-size: cover;
+=======
+   background-image: url("../images/scott-campbell-boombox-collection-record-collection-square.jpg.crdownload"); 
+
+>>>>>>> 8e49be96ebbc2b521c02592445affd0bbc0918d3
 } 
 
 .navbar {

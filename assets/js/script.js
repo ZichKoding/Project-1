@@ -1,3 +1,6 @@
+var searchTerm = $("#searchBar")
+
+
 function mainElDynamic() {
     const mainEl = $("main");
 
@@ -17,14 +20,28 @@ function mainElDynamic() {
 }
 
 mainElDynamic();
+function getEvents(){
+    fetch(`https://api.seatgeek.com/2/events?q=${searchTerm}&client_id=MjM3NjEyMTB8MTYzMzQ3NjcxNi43MzYzMzA1`)
+    .then(function(response){
+        if(response.ok){
+            console.log("ok")
+        }else{
+            console.log("not ok")
+        }
+        console.log(fetch)
+        console.log(response)
+        return response.json()
+        
+    })
+    .then(function(json){
+        console.log(json.venue)
 
-fetch(`https://api.seatgeek.com/2/events?q=${searchTerm}&client_id=MjM3NjEyMTB8MTYzMzQ3NjcxNi43MzYzMzA1`)
-.then(function(response){
-    console.log(fetch)
-    console.log(response)
-    return response.json
-})
-.then(function(json){
-    
+    });
+};
 
-})
+$("button").click((event) => {
+    event.preventDefault();
+    console.log($("#searchBar").val());
+    // musicBrainzData(testMBKey);
+    getEvents();
+});

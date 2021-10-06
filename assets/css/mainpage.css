@@ -71,8 +71,8 @@ body {
  .album-cover, 
  .music-video {
     text-align: right;
-    width: 400px;
-    height: 200px;
+    width: 500px;
+    height: 300px;
     border-radius: 10px;
     box-shadow: 5px 10px #888888;
     margin-right: 100px;

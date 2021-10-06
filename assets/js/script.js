@@ -16,19 +16,17 @@ function mainElDynamic() {
     // The add class part look to the style.css to see what it contains
     let pastFuture = $("<div></div>").addClass("testingContainer");
     // Music video dynamic
-    let musicEl = $("<iframe></iframe>").addClass("music-video").width("80%").height("500");
+    let musicEl = $("<iframe></iframe>").addClass("music-video");
     musicEl.attr("id", "searchedVid");
     // Appending the 3 main contents to the page.
     mainEl.append(pastFuture);
     mainEl.append(musicEl);
 };
 
-function musicVideoData(musicbrainz) {
-    fetch(musicbrainz)
+function musicVideoData(musicVid) {
+    fetch(musicVid)
     .then(response => response.json())
     .then(function(data) {
-        // logging data to find endpoints
-        console.log(data);
         // link to the youtube page
         console.log("https://www.youtube.com/watch?v=" + data.items[0].id.videoId + "&ab_channel=" + data.items[0].snippet.channelTitle);
         getEvents(data.items[0].snippet.channelTitle);
@@ -45,6 +43,12 @@ function getEvents(searchTerm){
     .then(response => response.json())
     .then(function(data) {
         console.log(data);
+        console.log(
+            data.events[0].title,
+            data.events[0].venue.extended_address,
+            data.events[0].datetime_local,
+            data.events[0].url
+            );
     });
 };
 
@@ -56,7 +60,7 @@ function getArtistName(searchTerm) {
     .then((data) => {
         console.log(data.results[0].artistName);
         let returnedArtist = data.results[0].artistName;
-        toString(getEvents(returnedArtist));
+        getEvents(returnedArtist);
     })
 };
 
@@ -65,7 +69,7 @@ $("button").click((event) => {
     event.preventDefault();
     // added the variables here so everything will be loaded correctly. 
     let searchEl = $("#searchBar").val();
-    let testMBKey = 'https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelType=any&maxResults=10&order=relevance&q=' + searchEl + '&type=video&key=' + config.youtube.brock;
+    let testMBKey = 'https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelType=any&maxResults=10&order=relevance&q=' + searchEl + '&type=video&key=' + config.youtube.chris;
     // dynamically loading the video to the html
     mainElDynamic();
     musicVideoData(testMBKey);

@@ -7,7 +7,8 @@ $("#searchBaR").keypress(function(event) {
       event.preventDefault();
       $("#search-button").click();
     }
-  });
+});
+
 
 function mainElDynamic() {
     const mainEl = $("#mainContainer");
@@ -21,7 +22,7 @@ function mainElDynamic() {
     mainEl.append(musicEl);
 };
 
-function musicBrainzData(musicbrainz) {
+function musicVideoData(musicbrainz) {
     fetch(musicbrainz)
     .then(response => response.json())
     .then(function(data) {
@@ -29,11 +30,31 @@ function musicBrainzData(musicbrainz) {
         console.log(data);
         // link to the youtube page
         console.log("https://www.youtube.com/watch?v=" + data.items[0].id.videoId + "&ab_channel=" + data.items[0].snippet.channelTitle);
+        getEvents(data.items[0].snippet.channelTitle);
         // variable for embedding the video
         let mainVidEl = "https://www.youtube.com/embed/" + data.items[0].id.videoId;
         // giving iframe the src path for the video
         $("#searchedVid").attr("src", mainVidEl);
     });
+};
+
+// seatgeek api for pulling up an artist's events
+function getEvents(searchTerm){
+    fetch(`https://api.seatgeek.com/2/events?q=${searchTerm}&client_id=` + config.seatgeek)
+    .then(response => response.json())
+    .then(function(data) {
+        console.log(data);
+    });
+};
+
+// itunes api to get artist name and send to getEvents
+// still looking on how to search for an artist by track name
+function getArtistName(searchTerm) {
+    fetch(`https://itunes.apple.com/search?key=${searchTerm}&entity=allArtist&limit=10`)
+    .then(response => response.json())
+    .then((data) => {
+        console.log(data);
+    })
 };
 
 
@@ -44,5 +65,6 @@ $("button").click((event) => {
     let testMBKey = 'https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelType=any&maxResults=10&order=relevance&q=' + searchEl + '&type=video&key=' + config.youtube.brock;
     // dynamically loading the video to the html
     mainElDynamic();
-    musicBrainzData(testMBKey);
+    musicVideoData(testMBKey);
+    getArtistName(searchEl);
 });

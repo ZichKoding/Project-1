@@ -17,3 +17,14 @@ function mainElDynamic() {
 }
 
 mainElDynamic();
+
+fetch(`https://api.seatgeek.com/2/events?client_id=MjM3NjEyMTB8MTYzMzQ3NjcxNi43MzYzMzA1`)
+.then(function(response){
+    console.log(fetch)
+    console.log(response)
+    return response.json
+})
+.then(function(json){
+    
+
+})

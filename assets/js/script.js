@@ -18,7 +18,7 @@ function mainElDynamic() {
 
 mainElDynamic();
 
-fetch(`https://api.seatgeek.com/2/events?client_id=MjM3NjEyMTB8MTYzMzQ3NjcxNi43MzYzMzA1`)
+fetch(`https://api.seatgeek.com/2/events?q=${searchTerm}&client_id=MjM3NjEyMTB8MTYzMzQ3NjcxNi43MzYzMzA1`)
 .then(function(response){
     console.log(fetch)
     console.log(response)

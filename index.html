@@ -6,56 +6,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--bulma stylesheet-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-    <!--main page style sheets-->
+    <!--search and main page style sheets-->
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
     <link rel="stylesheet" type="text/css" href="./assets/css/mainpage.css">
-    <!-- h1 font -->
+    <!-- google fonts link for h1 font styling -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
-
     <title>TuneItUp</title>
 </head>
 <body>
-    <nav id="class=">
-        <h1>
-            TUNE IT UP
-        </h1>
-         <!-- adding search bar to main page -->
-      <div class="container">
-        <form action="./index.html" class="form">
-            <input type="text" placeholder="Search A Music Video" class="search-bar" />
-            <button type="submit" class="search-button"></button>
-        </form>
-      </div>
-     <!-- end of search bar -->
-    </nav>
-    <main>
-        <div class="hero-image">
-            <div class="hero-text">
-        
+    <header>
+        <!-- adding search bar to navbar -->  
+        <div class="navbar row">
+            <h1>TuneItUp</h1>
+            <div class="search-container">
+                <form class="searchbox" action="">
+                    <input name="searchbox" type="text" size="75" class="search-bar" placeholder="Search for a music video.." required>
+                    <button type="submit" class="search-button" >
+                        Search
+                    </button>
+                </form>
             </div>
         </div>
         <!-- end of navbar -->
     </header> 
-
-    <!-- adding div for page layout-->
-    <div class=main-content>
-        <!-- section for event list-->
-        <div class="event-list">
+    <section class="main-container">
+        <div >
+            
+        
         </div>
         
-        <!-- section for album cover-->
-        <div class="album-cover">
-
-        </div>  
-
-        <!-- section for music video-->
-        <div class="music-video">
-        </div>
-    </div>
+    </section>
 
 
-    
+
+
+
+
+
+
+
+
+
 
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -64,4 +57,3 @@
     
 </body>
 </html>
-

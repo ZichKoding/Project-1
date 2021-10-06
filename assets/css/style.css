@@ -1,112 +1,45 @@
-/* website style */
 :root {
-<<<<<<< HEAD
-  --primary-color:#bfab8e;
-  --secondary-color: #b79785;
-  --tertiary-color: #cdb9a5;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  padding-bottom: 3px;
-}
-
-body {
-  background-color: var(--primary-color);
-}
-/* h1 and search bar at the top of the website */
-h1 {
-  display: inline-flex;
-  font-size: 48px;
-  border-bottom: 1px solid black;
-  width: 100%;
-}
-
-
-
-
-/* stylying the search bar on main page */
-.container {
-  float: right;
-  margin: 15px;
-}
-
-.form {
-  display: flex;
-  flex-direction: row;
-}
-
-.search-bar {
-  width: 300px;
-  height: 50px;
-  border: solid black;
-  border-radius: 30px;
-  outline: none;
-}
-
-.search-button {
-  background: transparent;
-  border: none;
-  outline: none;
-  margin-left: -30px;
-}
-
-.search-button img {
-  width: 20px;
-  height: 20px;
-  object-fit: contain;
-}
-/* end of stylying for main page search bar */
-
-=======
-    --primaryColor: #ffffff;
-    --secondaryColor: #ffffff;
-    --tertiaryColor: #ffffff;
-    --primaryTextColor: #000000;
-    --secondaryTextColor: #ffffff;
-    --tertiaryTextColor: #000000;
+  --primaryColor: #ffffff;
+  --secondaryColor: #ffffff;
+  --tertiaryColor: #ffffff;
+  --primaryTextColor: #000000;
+  --secondaryTextColor: #ffffff;
+  --tertiaryTextColor: #000000;
 }
 body, html {
-    height: 100%;
+  height: 100%;
 }
 
 nav {
-    background-color: black;
+  background-color: black;
 }
 nav h1 {
-    color: var(--secondaryTextColor);
-    font-size: 48px;
-    text-align: center;
-    
+  color: var(--secondaryTextColor);
+  font-size: 48px;
+  text-align: center;
+  
 }
 
 .hero-image {
 
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./assets/images/headphones-gc57ffae3d_1280.jpg");
+background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./assets/images/headphones-gc57ffae3d_1280.jpg");
 
-  /* Set a specific height */
-  height: 50%;
+/* Set a specific height */
+height: 50%;
 
-  /* Position and center the image to scale nicely on all screens */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
+/* Position and center the image to scale nicely on all screens */
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+position: relative;
 }
 
 /* Place text in the middle of the image */
 .hero-text {
-  text-align: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
+text-align: center;
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+color: white;
 }
-<<<<<<< HEAD
->>>>>>> searchcss
-=======
->>>>>>> c9698d1fd0f83274dfd9b82e0b63c2b1720726da
->>>>>>> 8e49be96ebbc2b521c02592445affd0bbc0918d3

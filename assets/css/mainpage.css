@@ -37,7 +37,7 @@ body {
 
 .search-bar {
     width: 72%;
-  
+    font-weight: 900;
 }
 
 .search-button {
@@ -47,26 +47,36 @@ body {
 .search-bar, .search-button  {
     padding: 8px;
     border-radius: 10px;   
+    text-shadow: 1px 1px var(--tertiary-color);
 }
 
 
 .search-bar:hover, .search-button:hover {
-    text-shadow: 1px 1px var(--tertiary-color);
+    /* text-shadow: 1px 1px var(--tertiary-color); */
     font-weight: 900;
     list-style-type: none;
 }
 
+/* Added this class to align the video correctly. -Chris Zichko */
+.main-container {
+    text-align: right;
+}
 
  .event-list{
      align-items: left;
      box-shadow: 5px 10px #888888;
-
  }
 
+ /* Had to edit these classes to give the video the correct position and size and rounded the corners*/
  .album-cover, 
  .music-video {
-    align-items: right;
+    text-align: right;
+    width: 400px;
+    height: 200px;
+    border-radius: 10px;
     box-shadow: 5px 10px #888888;
+    margin-right: 100px;
+    margin-top: 100px;
  }
 
 

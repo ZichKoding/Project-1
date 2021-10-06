@@ -3,18 +3,10 @@
     padding: 0%;
     box-sizing: border-box;
 }
-body, html {
-    height: 100%;
-}
-
 body {
-<<<<<<< HEAD
    background-image: url("../images/scott-campbell-boombox-collection-record-collection-square.jpg"); 
    background-size: cover;
-=======
-   background-image: url("../images/scott-campbell-boombox-collection-record-collection-square.jpg.crdownload"); 
-
->>>>>>> 8e49be96ebbc2b521c02592445affd0bbc0918d3
+   
 } 
 
 .navbar {
@@ -29,11 +21,9 @@ body {
     padding: 0 1rem;
     
 }
-
-h1 {
+ h1 {
     color: #ffffff;
     font-size: 50px;
-    font-family: 'Permanent Marker', cursive;
     text-align: right; 
     text-shadow: 2px 2px 4px #000000;
     margin-left: 15px;
@@ -67,14 +57,14 @@ h1 {
 }
 
 
-.event-list{
+ .event-list{
      align-items: left;
      box-shadow: 5px 10px #888888;
 
-}
+ }
 
-.album-cover, 
-.music-video {
+ .album-cover, 
+ .music-video {
     align-items: right;
     box-shadow: 5px 10px #888888;
  }

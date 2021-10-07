@@ -45,6 +45,11 @@ nav h1 {
 }
 
 /* CHRIS ZICHKO added this class for testing only*/
+main{
+  display: flex;
+  justify-content: space-between;
+  margin-right: 500px;
+}
 .testingContainer {
   background-color: black;
   width: 100px;

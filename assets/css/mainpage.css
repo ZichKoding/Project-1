@@ -1,0 +1,129 @@
+* {
+    margin: 0;
+    padding: 0%;
+    box-sizing: border-box;
+}
+body {
+   background-image: url("../images/scott-campbell-boombox-collection-record-collection-square.jpg"); 
+   background-size: 100%;
+   
+} 
+
+.navbar {
+    background-color: hsl(0,0%, 7%);
+    background-image: linear-gradient(45deg, #404247 0%, #666973 52%, #d3d9e8 90%);
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0 1rem;
+    
+}
+ h1 {
+    color: #ffffff;
+    font-size: 50px;
+    text-align: right; 
+    text-shadow: 2px 2px 4px #000000;
+    margin-left: 15px;
+    padding-top: 10px;
+
+}
+
+h2 {
+    font-size: 30px;
+}
+ul {
+    margin-top: 50px;
+}
+
+
+.search-container {
+    margin-left: 460px;
+}
+
+.search-bar {
+    width: 72%;
+    font-weight: 900;
+}
+
+.search-button {
+    color: black;
+}
+
+.search-bar:hover, .search-button:hover {
+    text-shadow: 1px;
+    font-weight: 900;
+    list-style-type: none;
+}
+
+/* Added this class to align the video correctly. -Chris Zichko */
+.main-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+ .event-list{
+     align-items: left;
+     width: 300px;
+     height: 500px;
+     box-shadow: 5px 10px #888888;
+     margin-left: 100px;
+     margin: auto;
+ }
+
+ /* Had to edit these classes to give the video the correct position and size and rounded the corners*/
+ .album-cover, 
+ .music-video {
+    text-align: right;
+    width: 500px;
+    height: 300px;
+    border-radius: 10px;
+    box-shadow: 5px 10px #888888;
+    margin-right: 100px;
+    margin-top: 100px;
+ }
+
+@media screen and (max-width: 980px) {
+    header { 
+        justify-content: center;
+        padding-bottom: 0;
+        position: relative;
+    }    
+
+    header h1  {
+        width: 100%;
+        text-align: center;
+    
+    }
+    .search-container {
+        margin-top: 20px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-left: 0px;
+
+    }
+    form.search-bar {
+        display: flex;
+        justify-content: center;
+
+    }
+}
+@media screen and (max-width: 768px) {
+        .navbar {
+        text-align: center;
+        padding: 0 auto;
+        width: 100%;
+    }
+}
+@media screen and (max-width: 475px) {
+    .navbar {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    padding: 0 auto;
+    width: 100%;
+   }
+}

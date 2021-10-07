@@ -43,3 +43,10 @@ nav h1 {
   transform: translate(-50%, -50%);
   color: white;
 }
+
+/* CHRIS ZICHKO added this class for testing only*/
+
+.testingContainer {
+  color: white;
+  background-color: black;
+}

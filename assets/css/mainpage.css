@@ -31,6 +31,7 @@ body {
 
 }
 
+/* Chris was here */
 h2 {
     font-size: 30px;
 }
@@ -72,7 +73,6 @@ ul {
      margin-left: 100px;
      margin: auto;
  }
-
  /* Had to edit these classes to give the video the correct position and size and rounded the corners*/
  .album-cover, 
  .music-video {
@@ -84,6 +84,7 @@ ul {
     margin-right: 100px;
     margin-top: 100px;
  }
+ /* Chris was here */
 
 @media screen and (max-width: 980px) {
     header { 

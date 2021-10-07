@@ -16,8 +16,8 @@ function musicVideoData(musicVid) {
     .then(response => response.json())
     .then(function(data) {
         // link to the youtube page
-        console.log(data);
-        console.log("https://www.youtube.com/watch?v=" + data.items[0].id.videoId + "&ab_channel=" + data.items[0].snippet.channelTitle);
+        // console.log(data);
+        // console.log("https://www.youtube.com/watch?v=" + data.items[0].id.videoId + "&ab_channel=" + data.items[0].snippet.channelTitle);
         // variable for embedding the video
         let mainVidEl = "https://www.youtube.com/embed/" + data.items[0].id.videoId + "?autoplay=1";
         // giving iframe the src path for the video
@@ -64,7 +64,6 @@ function getArtistName(searchTerm) {
     fetch(`https://itunes.apple.com/search?term=${searchTerm}&limit=10`)
     .then(response => response.json())
     .then((data) => {
-        console.log(data.results[0].artistName);
         let returnedArtist = data.results[0].artistName;
         getEvents(returnedArtist);
     });
@@ -81,9 +80,7 @@ $("button").click((event) => {
     event.preventDefault();
     // added the variables here so everything will be loaded correctly. 
     let searchEl = $("#searchBar").val();
-    console.log(searchEl);
     let testMBKey = 'https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelType=any&maxResults=10&order=relevance&q=' + searchEl + '&type=video&key=' + config.youtube.brock;
-    console.log(testMBKey);
     // dynamically loading the video to the html
     musicVideoData(testMBKey);
     // retrieving artist name from iTunes api

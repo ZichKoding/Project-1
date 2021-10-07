@@ -16,7 +16,7 @@ function musicVideoData(musicVid) {
     .then(response => response.json())
     .then(function(data) {
         // link to the youtube page
-        // console.log(data);
+        console.log(data);
         // console.log("https://www.youtube.com/watch?v=" + data.items[0].id.videoId + "&ab_channel=" + data.items[0].snippet.channelTitle);
         // variable for embedding the video
         let mainVidEl = "https://www.youtube.com/embed/" + data.items[0].id.videoId + "?autoplay=1";
@@ -32,7 +32,7 @@ function getEvents(searchTerm){
     fetch(`https://api.seatgeek.com/2/events?q=${searchTerm}&client_id=` + config.seatgeek )
     .then(response => response.json())
     .then(function(data) {
-        // console.log(data);
+        console.log(data);
 
         for(let i = 0; i < data.events.length && i < 5; i++) {
             // Looping the event dates and displaying the above the list
@@ -64,6 +64,7 @@ function getArtistName(searchTerm) {
     fetch(`https://itunes.apple.com/search?term=${searchTerm}&limit=10`)
     .then(response => response.json())
     .then((data) => {
+        console.log(data);
         let returnedArtist = data.results[0].artistName;
         getEvents(returnedArtist);
     });
@@ -80,7 +81,8 @@ $("button").click((event) => {
     event.preventDefault();
     // added the variables here so everything will be loaded correctly. 
     let searchEl = $("#searchBar").val();
-    let testMBKey = 'https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelType=any&maxResults=10&order=relevance&q=' + searchEl + '&type=video&key=' + config.youtube.brock;
+    console.log(searchEl);
+    let testMBKey = 'https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelType=any&maxResults=10&order=relevance&q=' + searchEl + '&type=video&key=' + config.youtube.chris;
     // dynamically loading the video to the html
     musicVideoData(testMBKey);
     // retrieving artist name from iTunes api

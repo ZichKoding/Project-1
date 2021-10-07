@@ -1,7 +1,3 @@
-// let searchEl = $("#searchBar").text();
-// let testMBKey = 'https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelType=any&eventType=completed&maxResults=10&order=relevance&q=' + searchEl + '&key=' + config.youtube.brock;
-
-
 // allows pressing the enter key as an option for searching in addition to the search button
 $("#searchBaR").keypress(function(event) {
     if (event.keyCode === 13) {
@@ -9,7 +5,6 @@ $("#searchBaR").keypress(function(event) {
       $("#search-button").click();
     }
 });
-
 
 function mainElDynamic() {
     const mainEl = $("#mainContainer");
@@ -53,7 +48,6 @@ function getEvents(searchTerm){
 };
 
 // itunes api to get artist name and send to getEvents
-// still looking on how to search for an artist by track name
 function getArtistName(searchTerm) {
     fetch(`https://itunes.apple.com/search?term=${searchTerm}&limit=10`)
     .then(response => response.json())
@@ -63,7 +57,6 @@ function getArtistName(searchTerm) {
         getEvents(returnedArtist);
     })
 };
-
 
 $("button").click((event) => {
     event.preventDefault();

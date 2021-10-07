@@ -30,7 +30,6 @@ body {
     padding-top: 10px;
 }
 
-
 .search-container {
     margin-left: 465px;
 }
@@ -49,7 +48,6 @@ body {
     border-radius: 10px;   
     text-shadow: 1px 1px var(--tertiary-color);
 }
-
 
 .search-bar:hover, .search-button:hover {
     /* text-shadow: 1px 1px var(--tertiary-color); */
@@ -78,8 +76,6 @@ body {
     margin-right: 100px;
     margin-top: 100px;
  }
-
-
 
 @media screen and (max-width: 980px) {
     header { 

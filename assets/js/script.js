@@ -31,12 +31,6 @@ function getEvents(searchTerm){
     .then(response => response.json())
     .then(function(data) {
         console.log(data);
-        console.log(
-            data.events[0].title,
-            data.events[0].venue.extended_address,
-            data.events[0].datetime_local,
-            data.events[0].url
-            );
 
         for(let i = 0; i < data.events.length || i > 4; i++) {
             // Looping the event dates and displaying the above the list
@@ -54,7 +48,9 @@ function getEvents(searchTerm){
             pastFutureUL.append(eventURL);
 
             // Appending the <ul>
-            pastFuture.append($(`<h2></h2>`).text(`${searchTerm} Events`));
+            if (i === 0){
+                pastFuture.append($(`<h2></h2>`).text(`${searchTerm} Events`));
+            }
             pastFuture.append(pastFutureUL);
             mainEl.append(pastFuture);
         }

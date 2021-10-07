@@ -88,7 +88,7 @@ $("button").click((event) => {
     event.preventDefault();
     // added the variables here so everything will be loaded correctly. 
     let searchEl = $("#searchBar").val();
-    let testMBKey = 'https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelType=any&maxResults=10&order=relevance&q=' + searchEl + '&type=video&key=' + config.youtube.brock;
+    let testMBKey = 'https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelType=any&maxResults=10&order=relevance&q=' + searchEl + '&type=video&key=' + config.youtube.kendall;
     // dynamically loading the video to the html
     musicVideoData(testMBKey);
     // retrieving artist name from iTunes api

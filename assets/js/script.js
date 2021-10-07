@@ -27,6 +27,7 @@ function musicVideoData(musicVid) {
 
 // seatgeek api for pulling up an artist's events
 function getEvents(searchTerm){
+    removeOld();
     fetch(`https://api.seatgeek.com/2/events?q=${searchTerm}&client_id=` + config.seatgeek)
     .then(response => response.json())
     .then(function(data) {
@@ -43,12 +44,12 @@ function getEvents(searchTerm){
             let eventAddress = $("<li></li>").text(`Address: ${data.events[0].venue.extended_address}`);
             pastFutureUL.append(eventAddress);
             // URL
-            let uRL = $("<a></a>").attr("src", data.events[0].url).text("https://seatgeek.com/");
+            let uRL = $("<a></a>").attr("href", data.events[0].url).text("https://seatgeek.com/");
             let eventURL = $("<li></li>").text(`URL: `).append(uRL);
             pastFutureUL.append(eventURL);
 
             // Appending the <ul>
-            if (i === 0){
+            if (i === 0) {
                 pastFuture.append($(`<h2></h2>`).text(`${searchTerm} Events`));
             }
             pastFuture.append(pastFutureUL);
@@ -67,6 +68,12 @@ function getArtistName(searchTerm) {
         getEvents(returnedArtist);
     });
 };
+
+function removeOld() {
+    for(let i = 0; i < pastFuture.length; i++) {
+        pastFuture[0].innerHTML = "";
+    };
+}
 
 
 $("button").click((event) => {

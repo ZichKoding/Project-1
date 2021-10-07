@@ -56,8 +56,14 @@ body {
 }
 
  .event-list{
-     align-items: left;
+     text-align: left;
+     width: 500px;
+     height: 700px;
+     border-radius: 10px;
      box-shadow: 5px 10px #888888;
+     margin-right: 100px;
+    margin-top: 100px;
+
  }
 
  /* Had to edit these classes to give the video the correct position and size and rounded the corners*/

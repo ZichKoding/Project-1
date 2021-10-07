@@ -3,6 +3,14 @@ let pastFuture = $("<div></div>").addClass("testingContainer").attr("id", "event
 let musicEl = $("<iframe></iframe>").addClass("music-video").attr("id", "searchedVid");
 
 
+// place item into localStorage
+function searchHistory() {
+    let historyEl = $("#searchBar").val();
+    localStorage.setItem("search history", JSON.stringify(historyEl));
+    console.log(historyEl);
+};
+
+
 // allows pressing the enter key as an option for searching in addition to the search button
 $("#searchBaR").keypress(function(event) {
     if (event.keyCode === 13) {
@@ -88,4 +96,7 @@ $("button").click((event) => {
     musicVideoData(testMBKey);
     // retrieving artist name from iTunes api
     getArtistName(searchEl);
+    searchHistory();
 });
+
+

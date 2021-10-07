@@ -1,4 +1,24 @@
-# Project-1
+# **TuneItUp**
+
+_Click the image below to use the application_
+[![livePage](./assets/images/TuneItUp.png)](https://zichkoding.github.io/TuneItUp)
+
+## Table of Contents
+
+- Description
+- How to Use
+- How We Started
+
+### **Description**
+Have you ever wanted to know if there were any concerts or events by the artist of your favorite artist? If so, TuneItUp has you covered! TuneItUp will display the events with a link to buy tickets from a song search.
+
+### **How to Use**
+1. Type in the search bar a song you like.
+2. Press enter or click search.
+3. Enjoy the magic show!
+4. If you want to buy tickets click the url under events.
+
+### **How We Started** 
 
 Brynne's wireframe main page.
 ![main](./assets/images/main.jpg)
@@ -6,32 +26,4 @@ Brynne's wireframe main page.
 After searched dynamically display template below
 ![dynmaic](./assets/images/dynamic.jpg)
 
-If able:
-- Add more songs dynamically create under the main content.
-- Change cursor to a tune symbol or music note.
 
-
-API's:
-- https://www.songkick.com/developer/upcoming-events-for-artist
-- https://www.theaudiodb.com/api_guide.php
-- https://musicbrainz.org/doc/MusicBrainz_API
-
-Rules for the API's:
-- songkick:
-    - https://www.songkick.com/developer/api-terms-of-use
-    - Attribution: you must display one of the logos provided by Songkick here on your application and wherever Songkick Data is used.
-
-    - When using the Songkick API, you must provide a link to the Songkick event page (example) for each event.
-
-    - Songkick will be the exclusive live music data provider. Please do not combine our data with any other concert data provider.
-
-    - You may only make calls to the Songkick API at a reasonable rate.
-
-    - You may not retain any copies of the Songkick Data, except for the purposes of retaining cached information for short periods (i.e. hours, not days).
-
-    - For Non-commercial: you must notify us if you want to start using the data for Commercial use, we reserve the right to revoke access if this is not complied with.
-    
-    - For Commercial: we have the right to revoke access if your use of the data competes with products or services offered by Songkick. For example, Songkick's core products today are personalized concert calendars and concert calendar alerts for the web, iPhone, Android, and Spotify.
-
-- musicbrainz
-    - I agree to use the Live Data Feed for non-commercial (less than $500 income per year) or personal uses only. I also agree to treat my access token as a secret and will not share this token publicly or commit it to a source code repository.

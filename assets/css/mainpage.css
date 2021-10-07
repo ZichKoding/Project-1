@@ -31,6 +31,14 @@ body {
 }
 
 
+h2 {
+    font-size: 30px;
+}
+ul {
+    margin-top: 50px;
+}
+
+
 .search-container {
     margin-left: 465px;
 }
@@ -59,7 +67,8 @@ body {
 
 /* Added this class to align the video correctly. -Chris Zichko */
 .main-container {
-    text-align: right;
+    display: flex;
+    justify-content: space-evenly;
 }
 
  .event-list{

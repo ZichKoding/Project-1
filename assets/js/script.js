@@ -16,6 +16,7 @@ function musicVideoData(musicVid) {
     .then(response => response.json())
     .then(function(data) {
         // link to the youtube page
+        console.log(data);
         console.log("https://www.youtube.com/watch?v=" + data.items[0].id.videoId + "&ab_channel=" + data.items[0].snippet.channelTitle);
         // variable for embedding the video
         let mainVidEl = "https://www.youtube.com/embed/" + data.items[0].id.videoId + "?autoplay=1";
@@ -28,12 +29,12 @@ function musicVideoData(musicVid) {
 // seatgeek api for pulling up an artist's events
 function getEvents(searchTerm){
     removeOld();
-    fetch(`https://api.seatgeek.com/2/events?q=${searchTerm}&client_id=` + config.seatgeek)
+    fetch(`https://api.seatgeek.com/2/events?q=${searchTerm}&client_id=` + config.seatgeek )
     .then(response => response.json())
     .then(function(data) {
-        console.log(data);
+        // console.log(data);
 
-        for(let i = 0; i < data.events.length || i > 4; i++) {
+        for(let i = 0; i < data.events.length && i < 5; i++) {
             // Looping the event dates and displaying the above the list
             let pastFutureUL = $("<ul></ul>").attr("id", "eventDate").text("Date: " + data.events[i].datetime_local);
             // Looping through the title, address, and url and displaying them.
@@ -80,7 +81,9 @@ $("button").click((event) => {
     event.preventDefault();
     // added the variables here so everything will be loaded correctly. 
     let searchEl = $("#searchBar").val();
-    let testMBKey = 'https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelType=any&maxResults=10&order=relevance&q=' + searchEl + '&type=video&key=' + config.youtube.chris;
+    console.log(searchEl);
+    let testMBKey = 'https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelType=any&maxResults=10&order=relevance&q=' + searchEl + '&type=video&key=' + config.youtube.brock;
+    console.log(testMBKey);
     // dynamically loading the video to the html
     musicVideoData(testMBKey);
     // retrieving artist name from iTunes api

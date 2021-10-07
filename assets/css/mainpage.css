@@ -103,6 +103,18 @@ body {
         justify-content: center;
 
     }
+
+    .music-video {
+        width: auto;
+        height: auto;
+        justify-content: center;
+    }
+
+    .event-list {
+        float: none;
+        margin-right: 0;
+        width: auto;
+    }
 }
 @media screen and (max-width: 768px) {
         .navbar {

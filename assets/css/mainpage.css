@@ -31,20 +31,18 @@ body {
 
 }
 
-
 .search-container {
     margin-left: 460px;
 }
 
 .search-bar {
     width: 72%;
-  
+    font-weight: 900;
 }
 
 .search-button {
     color: black;
 }
-
 
 .search-bar:hover, .search-button:hover {
     text-shadow: 1px;
@@ -52,20 +50,29 @@ body {
     list-style-type: none;
 }
 
+/* Added this class to align the video correctly. -Chris Zichko */
+.main-container {
+    text-align: right;
+}
 
  .event-list{
      align-items: left;
      box-shadow: 5px 10px #888888;
-
  }
 
+ /* Had to edit these classes to give the video the correct position and size and rounded the corners*/
  .album-cover, 
  .music-video {
-    align-items: right;
+    text-align: right;
+    width: 500px;
+    height: 300px;
+    border-radius: 10px;
     box-shadow: 5px 10px #888888;
+    margin-right: 100px;
+    margin-top: 100px;
  }
 
- @media screen and (max-width: 980px) {
+@media screen and (max-width: 980px) {
     header { 
         justify-content: center;
         padding-bottom: 0;
@@ -105,6 +112,5 @@ body {
     text-align: center;
     padding: 0 auto;
     width: 100%;
+   }
 }
-}
-

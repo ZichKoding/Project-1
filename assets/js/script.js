@@ -1,6 +1,7 @@
 const mainEl = $("#mainContainer");
 let pastFuture = $("<div></div>").addClass("testingContainer").attr("id", "eventContainer");
 let musicEl = $("<iframe></iframe>").addClass("music-video").attr("id", "searchedVid");
+// let historyEl = $("<div></div>").addClass("list-group").attr("id", "list-of-artist").attr("<ul></ul>");
 
 
 // create search history list
@@ -15,6 +16,7 @@ searchHistory();
                 $("#searchBar").val(artistName);
                 $("#search-button").click();
               });
+            //   mainEl.append(historyEl);
 
 }
 
@@ -31,13 +33,20 @@ function favoriteList() {
     searchHistory();
 };
 
+// Clear History button
+$("#clear-history").on("click", function () {
+    localStorage.clear();
+    location.reload();
+})
+
+
 // allows pressing the enter key as an option for searching in addition to the search button
-// $("#searchBaR").keypress(function(event) {
-//     if (event.keyCode === 13) {
-//       event.preventDefault();
-//       $("#search-button").click();
-//     }
-// });
+$("#searchBaR").keypress(function(event) {
+    if (event.keyCode === 13) {
+      event.preventDefault();
+      $("#search-button").click();
+    }
+});
 
 function musicVideoData(musicVid) {
     fetch(musicVid)

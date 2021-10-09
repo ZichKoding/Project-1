@@ -87,6 +87,11 @@ ul {
  }
  .favorite-artist {
      background-color: #ffffff;
+     width: 180px;
+ }
+ .favorite-artist H3 {
+     font-size: 18px;
+     font-weight: bold;
  }
  /* Chris was here */
 

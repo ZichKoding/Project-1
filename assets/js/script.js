@@ -3,21 +3,41 @@ let pastFuture = $("<div></div>").addClass("testingContainer").attr("id", "event
 let musicEl = $("<iframe></iframe>").addClass("music-video").attr("id", "searchedVid");
 
 
+// create search history list
+searchHistory();
+    function searchHistory(){
+        $("#list-of-artist").html("");
+        var storedArtist = JSON.parse(localStorage.getItem("favorite searches")) || [];
+            for (var i = 0; i< storedArtist.length; i++)
+            $(".favorite-artist").append('<li class="list-item">' + storedArtist[i] + "</li>");
+            $(".list-item").on("click", function () {
+                artistName = $(this).text();
+                $("#searchBar").val(artistName);
+                $("#search-button").click();
+              });
+
+}
+
 // place item into localStorage
-function searchHistory() {
-    let historyEl = $("#searchBar").val();
-    localStorage.setItem("search history", JSON.stringify(historyEl));
-    console.log(historyEl);
+function favoriteList() {
+        let favoriteSearches = JSON.parse(localStorage.getItem("favorite searches")) || [];
+        let artistName = (document.getElementById("searchBar").value);
+        if (favoriteSearches.indexOf(artistName) === -1){
+            favoriteSearches.push(artistName);
+        }
+            // for (var i = 0; i < favoriteSearches.length; i++)
+            localStorage.setItem("favorite searches", JSON.stringify(favoriteSearches));
+    console.log(favoriteSearches);
+    searchHistory();
 };
 
-
 // allows pressing the enter key as an option for searching in addition to the search button
-$("#searchBaR").keypress(function(event) {
-    if (event.keyCode === 13) {
-      event.preventDefault();
-      $("#search-button").click();
-    }
-});
+// $("#searchBaR").keypress(function(event) {
+//     if (event.keyCode === 13) {
+//       event.preventDefault();
+//       $("#search-button").click();
+//     }
+// });
 
 function musicVideoData(musicVid) {
     fetch(musicVid)
@@ -93,7 +113,9 @@ $("button").click((event) => {
     musicVideoData(testMBKey);
     // retrieving artist name from iTunes api
     getArtistName(searchEl);
+    favoriteList();
     searchHistory();
+    
 });
 
 

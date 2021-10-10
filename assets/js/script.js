@@ -113,8 +113,10 @@ $("button").click((event) => {
     let searchEl = $("#searchBar").val();
     console.log(searchEl);
     // retrieving artist name from iTunes api
-    setTimeout(getArtistName(searchEl), 10000);
-    searchHistory();
+    setTimeout(() => {
+        getArtistName(searchEl)
+        searchHistory();
+    }, 10000);
 });
 
 

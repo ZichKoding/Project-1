@@ -70,10 +70,10 @@ function musicVideoData(musicVid) {
     .then(function(data) {
         console.log(data);
         if (data.error) {
-            if(key <= names.length) {
+            if(key < names.length) {
                 key++;
                 musicVideoData(searchedVidTerm);
-            } else if (key === names.length) {
+            } else if (key >= names.length) {
                 key = 0;
                 musicVideoData(searchedVidTerm);
             }

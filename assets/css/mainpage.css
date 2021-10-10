@@ -111,6 +111,26 @@ ul {
         justify-content: center;
 
     }
+
+    
+    #mainContainer {
+        display: grid;
+    }
+
+    .music-video {
+        width: auto;
+        height: auto;
+        grid-column: 1;
+        grid-row: 1;
+        padding-bottom: 5px;
+    }
+
+    .event-list {
+        width: auto;
+        height: 200px;
+        grid-column: 1;
+        grid-row: 1;
+    }
 }
 @media screen and (max-width: 768px) {
         .navbar {

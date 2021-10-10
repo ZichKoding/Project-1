@@ -24,7 +24,7 @@ function musicVideoData(musicVid) {
     .then(response => response.json())
     .then(function(data) {
         // link to the youtube page
-        // console.log(data);
+        console.log(data);
         // console.log("https://www.youtube.com/watch?v=" + data.items[0].id.videoId + "&ab_channel=" + data.items[0].snippet.channelTitle);
         // variable for embedding the video
         let mainVidEl = "https://www.youtube.com/embed/" + data.items[0].id.videoId + "?autoplay=1";
@@ -40,28 +40,33 @@ function getEvents(searchTerm){
     fetch(`https://api.seatgeek.com/2/events?q=${searchTerm}&client_id=` + config.seatgeek )
     .then(response => response.json())
     .then(function(data) {
-        // console.log(data);
+        console.log(data);
 
-        for(let i = 0; i < data.events.length && i < 5; i++) {
-            // Looping the event dates and displaying the above the list
-            let pastFutureUL = $("<ul></ul>").attr("id", "eventDate").text("Date: " + data.events[i].datetime_local);
-            // Looping through the title, address, and url and displaying them.
-            // Title
-            let eventTitle = $("<li></li>").text(`Title: ${data.events[i].title}`);
-            pastFutureUL.append(eventTitle);
-            // Address
-            let eventAddress = $("<li></li>").text(`Address: ${data.events[0].venue.extended_address}`);
-            pastFutureUL.append(eventAddress);
-            // URL
-            let uRL = $("<a></a>").attr("href", data.events[0].url).text("https://seatgeek.com/");
-            let eventURL = $("<li></li>").text(`URL: `).append(uRL);
-            pastFutureUL.append(eventURL);
+        if (data.events.length > 0) {
+            for(let i = 0; i < data.events.length && i < 5; i++) {
+                // Looping the event dates and displaying the above the list
+                let pastFutureUL = $("<ul></ul>").attr("id", "eventDate").text("Date: " + data.events[i].datetime_local);
+                // Looping through the title, address, and url and displaying them.
+                // Title
+                let eventTitle = $("<li></li>").text(`Title: ${data.events[i].title}`);
+                pastFutureUL.append(eventTitle);
+                // Address
+                let eventAddress = $("<li></li>").text(`Address: ${data.events[0].venue.extended_address}`);
+                pastFutureUL.append(eventAddress);
+                // URL
+                let uRL = $("<a></a>").attr("href", data.events[0].url).text("https://seatgeek.com/");
+                let eventURL = $("<li></li>").text(`URL: `).append(uRL);
+                pastFutureUL.append(eventURL);
 
-            // Appending the <ul>
-            if (i === 0) {
-                pastFuture.append($(`<h2></h2>`).text(`${searchTerm} Events`));
+                // Appending the <ul>
+                if (i === 0) {
+                    pastFuture.append($(`<h2></h2>`).text(`${searchTerm} Events`));
+                }
+                pastFuture.append(pastFutureUL);
+                mainEl.append(pastFuture);
             }
-            pastFuture.append(pastFutureUL);
+        } else {
+            pastFuture.append($(`<h2></h2>`).text(`${searchTerm} has no upcoming events`));
             mainEl.append(pastFuture);
         }
     });
@@ -72,8 +77,22 @@ function getArtistName(searchTerm) {
     fetch(`https://itunes.apple.com/search?term=${searchTerm}&limit=10`)
     .then(response => response.json())
     .then((data) => {
-        let returnedArtist = data.results[0].artistName;
-        getEvents(returnedArtist);
+        console.log(data);
+        // looping through the list if the list of arrays is something other than song to retrieve more accurate search for events and music video
+        for (let i = 0; i < data.results.length; i++){
+            if (data.results[i].kind === "song") {
+                // retrieving events with artist name
+                let returnedArtist = data.results[i].artistName;
+                getEvents(returnedArtist);
+
+                // adding artist name to the end of search to hopefully make a more accurate search
+                let betterVidSearch = data.results[i].trackName + " by " + returnedArtist;
+                console.log(betterVidSearch);
+                let testMBKey = 'https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelType=any&maxResults=10&order=relevance&q=' + betterVidSearch + '&type=video&key=' + config.youtube.chris;
+                musicVideoData(testMBKey);
+                break;
+            }
+        }
     });
 };
 
@@ -88,9 +107,7 @@ $("button").click((event) => {
     event.preventDefault();
     // added the variables here so everything will be loaded correctly. 
     let searchEl = $("#searchBar").val();
-    let testMBKey = 'https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelType=any&maxResults=10&order=relevance&q=' + searchEl + '&type=video&key=' + config.youtube.brock;
-    // dynamically loading the video to the html
-    musicVideoData(testMBKey);
+    console.log(searchEl);
     // retrieving artist name from iTunes api
     getArtistName(searchEl);
     searchHistory();

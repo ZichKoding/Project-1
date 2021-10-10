@@ -1,5 +1,7 @@
 # **TuneItUp**
 
+_Created By: @oldgraybuzzard @brynne-eastman @Brock-Merritt @pzimero @ZichKoding_
+
 _Click the image below to use the application_
 [![livePage](./assets/images/TuneItUp.png)](https://zichkoding.github.io/TuneItUp)
 

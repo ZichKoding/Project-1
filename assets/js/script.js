@@ -105,11 +105,15 @@ function removeOld() {
 
 $("button").click((event) => {
     event.preventDefault();
+    // adding audio to search
+    let searchAudio = new Audio("./assets/audio/searchAudio.mp3");
+    searchAudio.play();
+
     // added the variables here so everything will be loaded correctly. 
     let searchEl = $("#searchBar").val();
     console.log(searchEl);
     // retrieving artist name from iTunes api
-    getArtistName(searchEl);
+    setTimeout(getArtistName(searchEl), 10000);
     searchHistory();
 });
 

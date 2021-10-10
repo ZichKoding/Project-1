@@ -45,8 +45,10 @@ nav h1 {
 }
 
 /* CHRIS ZICHKO added this class for testing only*/
-
 .testingContainer {
   color: white;
   background-color: black;
+  border-radius: 10px;
+  box-shadow: -5px 10px #888888;
+  margin-top: 100px;
 }

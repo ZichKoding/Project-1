@@ -163,6 +163,7 @@ $(".search-button").click((event) => {
     // added the variables here so everything will be loaded correctly. 
     let searchEl = $("#searchBar").val();
     console.log(searchEl);
+
     // retrieving artist name from iTunes api
     setTimeout(() => {
         getArtistName(searchEl)

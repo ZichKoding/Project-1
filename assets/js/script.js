@@ -9,13 +9,14 @@ searchHistory();
     function searchHistory(){
         $("#list-of-artist").html("");
         var storedArtist = JSON.parse(localStorage.getItem("favorite searches")) || [];
-            for (var i = 0; i < storedArtist.length; i++)
-                $(".favorite-artist").append('<li class="list-item">' + storedArtist[i] + "</li>");
+            for (var i = 0; i < storedArtist.length; i++) {
+                $("#list-of-artist").append('<li class="list-item">' + storedArtist[i] + "</li>");
                 $(".list-item").on("click", function () {
                     artistName = $(this).text();
                         $("#searchBar").val(artistName);
                         $("#search-button").click();
-              });
+                });
+            };
     // mainEl.append(historyEl);
 
 }
@@ -35,16 +36,17 @@ function favoriteList() {
 
 // Clear History button
 $("#clear-history").on("click", function () {
-    for (let i = 0; i < localStorage.key(0).length; i++) {
-        $("#mainContainer").remove($(".list-item"));
-        console.log(localStorage.getItem(localStorage.key(i)));
-       localStorage.removeItem(localStorage.key(i));
+    // Removing list items from search 
+    $(".list-item").remove();
+    // Removing any data in local storage
+    for (key in localStorage) {
+        localStorage.removeItem(key);
     }
+    // Hide the container after local Storage is empty
     if (localStorage.length <= 0) {
         $(".favorite-artist").hide();
         console.log(localStorage.key);
     }
-    // location.reload();
 })
 
 
@@ -60,9 +62,6 @@ function musicVideoData(musicVid) {
     fetch(musicVid)
     .then(response => response.json())
     .then(function(data) {
-        // link to the youtube page
-        // console.log(data);
-        // console.log("https://www.youtube.com/watch?v=" + data.items[0].id.videoId + "&ab_channel=" + data.items[0].snippet.channelTitle);
         // variable for embedding the video
         let mainVidEl = "https://www.youtube.com/embed/" + data.items[0].id.videoId + "?autoplay=1";
         // giving iframe the src path for the video
@@ -125,15 +124,17 @@ $(".search-button").click((event) => {
     event.preventDefault();
     // added the variables here so everything will be loaded correctly. 
     let searchEl = $("#searchBar").val();
-    let testMBKey = 'https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelType=any&maxResults=10&order=relevance&q=' + searchEl + '&type=video&key=' + config.youtube.brock;
+    let testMBKey = 'https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelType=any&maxResults=10&order=relevance&q=' + searchEl + '&type=video&key=' + config.youtube.chris;
     // dynamically loading the video to the html
     musicVideoData(testMBKey);
     // retrieving artist name from iTunes api
     getArtistName(searchEl);
     favoriteList();
     $(".favorite-artist").show();
-
-      
 });
 
-
+// hides prev search elements if there's no search history in local storage
+if (localStorage.length <= 0) {
+    $(".favorite-artist").hide();
+    console.log(localStorage.key);
+}

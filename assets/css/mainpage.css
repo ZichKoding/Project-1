@@ -48,10 +48,12 @@ ul {
 .search-bar {
     width: 72%;
     font-weight: 900;
+    font-family: fantasy;
 }
 
 .search-button {
     color: black;
+    
 }
 
 .search-bar:hover, .search-button:hover{

@@ -141,13 +141,19 @@ function removeOld() {
 
 $(".search-button").click((event) => {
     event.preventDefault();
+    // adding audio to search
+    let searchAudio = new Audio("./assets/audio/searchAudio.mp3");
+    searchAudio.play();
+
     // added the variables here so everything will be loaded correctly. 
     let searchEl = $("#searchBar").val();
     console.log(searchEl);
     // retrieving artist name from iTunes api
-    getArtistName(searchEl);
-    favoriteList();
-    $(".favorite-artist").show();
+    setTimeout(() => {
+        getArtistName(searchEl)
+        searchHistory();
+        searchAudio.pause();
+    }, 3500);
 });
 
 // hides prev search elements if there's no search history in local storage

@@ -1,23 +1,25 @@
 let mainEl = $("#mainContainer");
 let pastFuture = $("<div></div>").addClass("testingContainer").attr("id", "eventContainer");
 let musicEl = $("<iframe></iframe>").addClass("music-video").attr("id", "searchedVid");
+let names = [config.youtube.chris, config.youtube.brock, config.youtube.kendall, config.youtube.brynne];
+let key = 0;
 // let historyEl = $("<div></div>").addClass("list-group").attr("id", "list-of-artist").attr("<ul></ul>");
 
 
 // create search history list
 searchHistory();
-    function searchHistory(){
-        $("#list-of-artist").html("");
-        var storedArtist = JSON.parse(localStorage.getItem("favorite searches")) || [];
-            for (var i = 0; i < storedArtist.length; i++) {
-                $("#list-of-artist").append('<li class="list-item">' + storedArtist[i] + "</li>");
-                $(".list-item").on("click", function () {
-                    artistName = $(this).text();
-                        $("#searchBar").val(artistName);
-                        $("#search-button").click();
-                });
-            };
-    // mainEl.append(historyEl);
+function searchHistory(){
+    $("#list-of-artist").html("");
+    var storedArtist = JSON.parse(localStorage.getItem("favorite searches")) || [];
+    for (var i = 0; i < storedArtist.length; i++) {
+        $("#list-of-artist").append('<li class="list-item">' + storedArtist[i] + "</li>");
+        $(".list-item").on("click", function () {
+            artistName = $(this).text();
+                $("#searchBar").val(artistName);
+                $("#search-button").click();
+        });
+    };
+// mainEl.append(historyEl);
 
 }
 
@@ -59,9 +61,23 @@ $("#searchBaR").keypress(function(event) {
 });
 
 function musicVideoData(musicVid) {
-    fetch(musicVid)
+    let searchedVidTerm = musicVid;
+    console.log(key);
+    let newKey = names[key];
+    let testMBKey = 'https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelType=any&maxResults=10&order=relevance&q=' + musicVid + '&type=video&key=' + newKey;
+    fetch(testMBKey)
     .then(response => response.json())
     .then(function(data) {
+        console.log(data);
+        if (data.error) {
+            if(key <= names.length) {
+                key++;
+                musicVideoData(searchedVidTerm);
+            } else if (key === names.length) {
+                key = 0;
+                musicVideoData(searchedVidTerm);
+            }
+        }
         // variable for embedding the video
         let mainVidEl = "https://www.youtube.com/embed/" + data.items[0].id.videoId + "?autoplay=1";
         // giving iframe the src path for the video
@@ -124,8 +140,7 @@ function getArtistName(searchTerm) {
                 // adding artist name to the end of search to hopefully make a more accurate search
                 let betterVidSearch = data.results[i].trackName + " by " + returnedArtist;
                 console.log(betterVidSearch);
-                let testMBKey = 'https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelType=any&maxResults=10&order=relevance&q=' + betterVidSearch + '&type=video&key=' + config.youtube.chris;
-                musicVideoData(testMBKey);
+                musicVideoData(betterVidSearch);
                 break;
             }
         }
@@ -152,7 +167,8 @@ $(".search-button").click((event) => {
     // retrieving artist name from iTunes api
     setTimeout(() => {
         getArtistName(searchEl)
-        searchHistory();
+        favoriteList();
+        $(".favorite-artist").show();
         searchAudio.pause();
     }, 3500);
 });

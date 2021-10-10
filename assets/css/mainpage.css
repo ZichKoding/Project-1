@@ -76,7 +76,7 @@ ul {
      border-radius: 10px;
      margin-left: 100px;
      margin: auto;
-     padding: 5px;
+     padding-bottom: 15px;
      
  }
 
@@ -95,6 +95,7 @@ ul {
      background-color: #000000;
      color: #ffffff;
      width: 180px;
+     max-height: 300px;
      
  }
  .favorite-artist h3 {

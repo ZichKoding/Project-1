@@ -1,14 +1,53 @@
-const mainEl = $("#mainContainer");
+let mainEl = $("#mainContainer");
 let pastFuture = $("<div></div>").addClass("testingContainer").attr("id", "eventContainer");
 let musicEl = $("<iframe></iframe>").addClass("music-video").attr("id", "searchedVid");
+// let historyEl = $("<div></div>").addClass("list-group").attr("id", "list-of-artist").attr("<ul></ul>");
 
+
+// create search history list
+searchHistory();
+    function searchHistory(){
+        $("#list-of-artist").html("");
+        var storedArtist = JSON.parse(localStorage.getItem("favorite searches")) || [];
+            for (var i = 0; i < storedArtist.length; i++) {
+                $("#list-of-artist").append('<li class="list-item">' + storedArtist[i] + "</li>");
+                $(".list-item").on("click", function () {
+                    artistName = $(this).text();
+                        $("#searchBar").val(artistName);
+                        $("#search-button").click();
+                });
+            };
+    // mainEl.append(historyEl);
+
+}
 
 // place item into localStorage
-function searchHistory() {
-    let historyEl = $("#searchBar").val();
-    localStorage.setItem("search history", JSON.stringify(historyEl));
-    console.log(historyEl);
+function favoriteList() {
+        let favoriteSearches = JSON.parse(localStorage.getItem("favorite searches")) || [];
+        let artistName = (document.getElementById("searchBar").value);
+        if (favoriteSearches.indexOf(artistName) === -1){
+            favoriteSearches.push(artistName);
+        }
+
+        localStorage.setItem("favorite searches", JSON.stringify(favoriteSearches));
+    // console.log(favoriteSearches);
+    searchHistory();
 };
+
+// Clear History button
+$("#clear-history").on("click", function () {
+    // Removing list items from search 
+    $(".list-item").remove();
+    // Removing any data in local storage
+    for (key in localStorage) {
+        localStorage.removeItem(key);
+    }
+    // Hide the container after local Storage is empty
+    if (localStorage.length <= 0) {
+        $(".favorite-artist").hide();
+        console.log(localStorage.key);
+    }
+})
 
 
 // allows pressing the enter key as an option for searching in addition to the search button
@@ -23,9 +62,6 @@ function musicVideoData(musicVid) {
     fetch(musicVid)
     .then(response => response.json())
     .then(function(data) {
-        // link to the youtube page
-        console.log(data);
-        // console.log("https://www.youtube.com/watch?v=" + data.items[0].id.videoId + "&ab_channel=" + data.items[0].snippet.channelTitle);
         // variable for embedding the video
         let mainVidEl = "https://www.youtube.com/embed/" + data.items[0].id.videoId + "?autoplay=1";
         // giving iframe the src path for the video
@@ -103,14 +139,19 @@ function removeOld() {
 }
 
 
-$("button").click((event) => {
+$(".search-button").click((event) => {
     event.preventDefault();
     // added the variables here so everything will be loaded correctly. 
     let searchEl = $("#searchBar").val();
     console.log(searchEl);
     // retrieving artist name from iTunes api
     getArtistName(searchEl);
-    searchHistory();
+    favoriteList();
+    $(".favorite-artist").show();
 });
 
-
+// hides prev search elements if there's no search history in local storage
+if (localStorage.length <= 0) {
+    $(".favorite-artist").hide();
+    console.log(localStorage.key);
+}

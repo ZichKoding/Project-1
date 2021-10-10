@@ -116,7 +116,8 @@ $("button").click((event) => {
     setTimeout(() => {
         getArtistName(searchEl)
         searchHistory();
-    }, 10000);
+        searchAudio.pause();
+    }, 3500);
 });
 
 

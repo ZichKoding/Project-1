@@ -3,7 +3,9 @@
 _Created By: @oldgraybuzzard @brynne-eastman @Brock-Merritt @pzimero @ZichKoding_
 
 _Click the image below to use the application_
-[![livePage](./assets/images/TuneItUp.png)](https://zichkoding.github.io/TuneItUp)
+![image](https://user-images.githubusercontent.com/61666382/136717500-dc029c5f-62d0-41b9-ae86-2ffff59067e6.png)
+![image](https://user-images.githubusercontent.com/61666382/136718128-cca01915-edd3-406e-b270-2785f8575d4e.png)
+
 
 ## Table of Contents
 
